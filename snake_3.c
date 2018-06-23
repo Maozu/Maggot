@@ -6,10 +6,9 @@
 #include <time.h>
 #define HEIGHT 28
 #define WIDTH 60
-int box[HEIGHT][WIDTH] = {0};
+int box[HEIGHT][WIDTH] = {7134};
 int lenth = 4;
 int grade = 0;
-
 
 void gotoxy(int, int);
 void start();
@@ -20,27 +19,35 @@ int eat(int, int);
 int alive(int, int);
 void introduce();
 void food();
+void menu();
+void wait();
 
 
 int main() {
     char move;
     char try;
     int a = 1;
+
     introduce();
+    //wait();
+    system("cls");
     move = 'a';
-    scanf("%c",&try);
-    getchar();
+    //scanf("%c",&try);
+    //getchar();
     start();
     while (a != 9) {
+
         show();
         if (kbhit()) {
-            move = (char)getch();
+            try = (char)getch();
+            if(try=='a'||try=='s'||try=='w'||try=='d')
+                move = try;
             a = with(move);
         }
         else
           a = with(move);
        food();
-       Sleep(200);
+       Sleep(50);
       // system("cls");
         // move = (char)getch();
         // a = with(move);
@@ -74,6 +81,7 @@ void start() {
     //如果有机会可以尝试循环几次换一个框，类似升级加强难度那种
     //7ÊÇÍ·£¬2ÊÇÉí£¬4ÊÇÎ²
     //555ÊÇÊ³Îï
+    //7134,9928
 
 //    // For Test
 //    for (i = 0; i < HEIGHT; i++) {
@@ -91,20 +99,20 @@ void show() {
     int i, j;
     for (i = 0; i < HEIGHT; i++) {
         for(j = 0;j < WIDTH; j++) {
-            if(box[i][j] == 7134){
+            if(box[i][j] > 5000 && box[i][j] <=7134){
                 printf("|");
-                printf("hhhhhhhhhhhhh");//for test
+               
             }
-            if (box[i][j] == 9928){
+            if (box[i][j] > 7134){
                 printf("_");
             }
             if(box[i][j] == lenth){
              //   printf("¡ñ");
-                printf("●");
+                printf("2");
             }
             if(box[i][j] < lenth && box[i][j] > 0){
              //   printf("¡ö");
-                printf("■");
+                printf("3");
             }
             if(box[i][j] == -1){
                 //用-1表示食物吧
@@ -241,13 +249,39 @@ void lose() {
 
 void introduce() {
     int i;
-    //char try = (char)getch();
+    char try;
     gotoxy(0, 0);
-    for(i = 0; i < 13; i++)
+    for(i = 0; i < 6; i++)
         printf("\n");
     for(i = 0; i < 10; i++)
         printf(" ");
-    printf("press whatever you like to get start!");
+    printf("               THIS IS THE GREAT MAGGOT_3.0\n");
+    printf("\n");
+    Sleep(1000);
+    printf("                    你可以直接按s来开始【如果您熟悉的话】\n");
+    Sleep(1000);
+    printf("                      或者也可以按m来看一眼游戏规则\n");
+    Sleep(1000);
+    printf("                 不要瞎**按，否则你需要重新开一遍就是这么任性\n");
+    Sleep(1000);
+    try = (char)getch();
+    if(try == 'm')
+        menu();
+    else if(try == 's') {
+         system("cls");
+         printf("\n");printf("\n");printf("\n");printf("\n");printf("\n");printf("\n");printf("\n");
+         printf("                   HAVE FUN");
+         Sleep(2000);
+    }
+    else {
+        system("cls");
+        printf("怎么就这么不听劝呢");
+        while(1) {
+             scanf("%d",&i);
+        }
+       
+    }
+
 
 }
 
@@ -265,3 +299,34 @@ void food() {
         box[heigh][width] = -1;
     }
 }
+
+
+void menu() {
+    char try;
+    system("cls");
+    printf("\n");printf("\n");printf("\n");printf("\n");printf("\n");printf("\n");printf("\n");
+    printf("                             理论上他是贪吃蛇\n");
+    Sleep(1000);
+    printf("                      毕竟规则就很像那个经典的小游戏\n");
+    Sleep(1000);
+    printf("         我叫他长尾蛆的原因也只是因为在我的1.0,2.0中他真的是扭曲变形如蛆虫\n");
+    Sleep(1000);
+    printf("                没什么多说的吧，wasd控制，别撞自己，别撞墙\n");
+    Sleep(1000);
+    printf("                         一如既往的按任意键开始\n");
+    try = (char)getch();
+}
+
+
+// void wait() {
+//     int i;
+//     system("cls");
+//     printf("\n");printf("\n");printf("\n");printf("\n");printf("\n");printf("\n");printf("\n");
+//     printf("                                  秋豆麻袋\n");
+//     printf("                            您可以选一下难度系数\n");
+//     printf("                            初级---------------1\n");
+//     printf("                            中极---------------1\n");
+//     printf("                            高级---------------1\n");
+//     printf("                            魔改---------------1\n");
+//     scanf("%d",&i)
+// }
