@@ -4,11 +4,16 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <time.h>
-#define HEIGHT 28
+#define HEIGHT 40
 #define WIDTH 60
 int box[HEIGHT][WIDTH] = {7134};
 int lenth = 4;
 int grade = 0;
+typedef struct {
+    int time;
+    int food;
+} zu;
+zu lv;
 
 void gotoxy(int, int);
 void start();
@@ -21,6 +26,7 @@ void introduce();
 void food();
 void menu();
 void wait();
+void gra();
 
 
 int main() {
@@ -29,7 +35,7 @@ int main() {
     int a = 1;
 
     introduce();
-    //wait();
+    wait();
     system("cls");
     move = 'a';
     //scanf("%c",&try);
@@ -38,6 +44,7 @@ int main() {
     while (a != 9) {
 
         show();
+        gra();
         if (kbhit()) {
             try = (char)getch();
             if(try=='a'||try=='s'||try=='w'||try=='d')
@@ -47,11 +54,15 @@ int main() {
         else
           a = with(move);
        food();
-       Sleep(50);
+       if(lv.time == 5) {
+        Sleep(rand()%400);
+       }
+       else
+        Sleep(lv.time);
       // system("cls");
         // move = (char)getch();
         // a = with(move);
-
+    grade += 1;
     }
     lose();
     return 0;
@@ -215,6 +226,7 @@ return 1;
 
 int eat(int head_x, int head_y) {
     if (box[head_y][head_x] < 0) {
+        grade += 7;
         return 1;
     }
     else {
@@ -242,7 +254,7 @@ void lose() {
         printf("\n");
     for(i = 0; i < 25; i++)
         printf(" ");
-    printf("Good Game!");
+    printf("您已经很优秀了\n");
 
 }
 
@@ -262,7 +274,11 @@ void introduce() {
     Sleep(1000);
     printf("                      或者也可以按m来看一眼游戏规则\n");
     Sleep(1000);
-    printf("                 不要瞎**按，否则你需要重新开一遍就是这么任性\n");
+    printf("              不要瞎**按，否则你需要重新开一遍就是这么任性，哼唧\n");
+    Sleep(1000);
+     printf("      出现了任何问题或者您有什么想法都可以通过mao-zu@outlook,com来告知我\n");
+    Sleep(1000);
+     printf("                                祝顺好\n");
     Sleep(1000);
     try = (char)getch();
     if(try == 'm')
@@ -287,8 +303,10 @@ void introduce() {
 
 void food() {
     int heigh, width;
+    int food;
     grade += 1;
-    if(0 == grade % 17) {
+    food = lv.food;
+    if(0 == grade % food) {
         srand((unsigned)time(NULL));
         heigh = rand() % 28 + 1;
         width = rand() % 60 + 1;
@@ -313,20 +331,45 @@ void menu() {
     Sleep(1000);
     printf("                没什么多说的吧，wasd控制，别撞自己，别撞墙\n");
     Sleep(1000);
+    printf("                          魔改版运动速度的任意的\n");
+    Sleep(1000);
     printf("                         一如既往的按任意键开始\n");
     try = (char)getch();
 }
 
 
-// void wait() {
-//     int i;
-//     system("cls");
-//     printf("\n");printf("\n");printf("\n");printf("\n");printf("\n");printf("\n");printf("\n");
-//     printf("                                  秋豆麻袋\n");
-//     printf("                            您可以选一下难度系数\n");
-//     printf("                            初级---------------1\n");
-//     printf("                            中极---------------1\n");
-//     printf("                            高级---------------1\n");
-//     printf("                            魔改---------------1\n");
-//     scanf("%d",&i)
-// }
+void wait() {
+    int i;
+    system("cls");
+    printf("\n");printf("\n");printf("\n");printf("\n");printf("\n");printf("\n");printf("\n");
+    printf("                                  秋豆麻袋\n");
+    printf("                            您可以选一下难度系数\n");
+    printf("                            初级---------------1\n");
+    printf("                            中极---------------2\n");
+    printf("                            高级---------------3\n");
+    printf("                            魔改---------------4\n");
+    scanf("%d",&i);
+    if(i == 1) {
+        lv.time = 200;
+        lv.food = 13;
+    }
+    if(i == 2) {
+        lv.time = 100;
+        lv.food = 15;
+    }
+    if(i == 3) {
+        lv.time = 30;
+        lv.food = 15;
+    }
+    if(i == 4) {
+        lv.time = 5;
+        lv.food = 17;
+    }
+}
+
+
+void gra() {
+    gotoxy(70, 10);
+    printf("您的得分%d\n",grade);
+
+}
