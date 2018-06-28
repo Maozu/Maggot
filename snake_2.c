@@ -81,7 +81,7 @@ void start() {
 }
 
 void show() {
-    //gotoxy(0, 0);
+    gotoxy(0, 0);
     // system("cls");
     int i, j;
     for (i = 0; i < HEIGHT; i++) {

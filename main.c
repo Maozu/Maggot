@@ -52,37 +52,37 @@ int main() {
             a = with(move);
         }
         else
-          a = with(move);
-       food();
-       if(lv.time == 5) {
-        Sleep(rand()%400);
-       }
-       else
-        Sleep(lv.time);
-      // system("cls");
+            a = with(move);
+        food();
+        if(lv.time == 5) {
+            Sleep(rand()%400);
+        }
+        else
+            Sleep(lv.time);
+        // system("cls");
         // move = (char)getch();
         // a = with(move);
-    grade += 1;
+        grade += 1;
     }
     lose();
     return 0;
 }
 
 
-//³õÊ¼ÓÎÏ·
+//???????·
 void start() {
     int i;
-    //³õÊ¼»¯ÓÎÏ·
+    //?????????·
     for (i = 0; i < HEIGHT; i++) {
         box[i][0] = 7134;
         box[i][WIDTH-1] = 7134;
     }
-    //ÊúÊÇ1£¬ºáÊÇ9
+    //?ú??1???á??9
     for (i = 0; i < WIDTH; i++) {
         box[0][i] = 9928;
         box[HEIGHT-1][i] = 9928;
     }
-    //³õÊ¼»¯Éß
+    //????????
     box[20][20] = 4;
     box[20][21] = 3;
     box[20][22] = 2;
@@ -90,8 +90,8 @@ void start() {
     //9928_
     //7134|
     //如果有机会可以尝试循环几次换一个框，类似升级加强难度那种
-    //7ÊÇÍ·£¬2ÊÇÉí£¬4ÊÇÎ²
-    //555ÊÇÊ³Îï
+    //7???·??2???í??4????
+    //555??????
     //7134,9928
 
 //    // For Test
@@ -112,22 +112,22 @@ void show() {
         for(j = 0;j < WIDTH; j++) {
             if(box[i][j] > 5000 && box[i][j] <=7134){
                 printf("|");
-               
+
             }
             if (box[i][j] > 7134){
                 printf("_");
             }
             if(box[i][j] == lenth){
-             //   printf("¡ñ");
+                //   printf("??");
                 printf("2");
             }
             if(box[i][j] < lenth && box[i][j] > 0){
-             //   printf("¡ö");
+                //   printf("??");
                 printf("3");
             }
             if(box[i][j] == -1){
                 //用-1表示食物吧
-//                printf("");  // Õâ¸ö×Ö·û²»ÄÜÓÃ
+//                printf("");  // ????×?·???????
                 printf("*");
             }
             if(box[i][j] == 0){
@@ -144,7 +144,7 @@ void gotoxy(int x,int y) {
     pos.X = x;
     pos.Y = y;
     SetConsoleCursorPosition(handle,pos);
-    //Ä£Äâgotoxyº¯Êý
+    //????gotoxy????
 
 }
 
@@ -153,7 +153,7 @@ int with(char move) {
     int head_x = 0, head_y = 0;
     for (i = 0; i < WIDTH; i++) {
         for(j = 0; j < HEIGHT; j++){
-         //   printf("%c",move);
+            //   printf("%c",move);
 
             if ('w' == move) {
                 if (lenth == box[j][i]) {
@@ -183,7 +183,7 @@ int with(char move) {
             // printf("%d,%d\n",head_y,head_x);
             // printf("%d      \n",box[head_y][head_x]);
             //for test
-            
+
             // if(eat(head_x, head_y)) {
             //     lenth += 1;
             //     box[head_y][head_x] = lenth;
@@ -197,11 +197,11 @@ int with(char move) {
             // }
         }
     }
-   if (!alive(head_x, head_y)) { 
-            // printf("gggggggggggggggfuck");  
-                  return 9;
-            }
-   for (i = 0; i < WIDTH; i++) {
+    if (!alive(head_x, head_y)) {
+        // printf("gggggggggggggggfuck");
+        return 9;
+    }
+    for (i = 0; i < WIDTH; i++) {
         for(j = 0; j < HEIGHT; j++){
             if(eat(head_x, head_y)) {
                 // printf("eat");
@@ -216,12 +216,12 @@ int with(char move) {
                 }
 
             }
-        } 
+        }
     }
-return 1;     
+    return 1;
 
 }
-//Èç¹ûËÀÁËreturn 9£»
+//????????return 9??
 
 
 int eat(int head_x, int head_y) {
@@ -238,12 +238,12 @@ int eat(int head_x, int head_y) {
 int alive(int head_x, int head_y) {
     if (!eat(head_x, head_y)) {
         if (box[head_y][head_x]) {
-           return 0;
+            return 0;
         }
-    return 1;
+        return 1;
     }
     return 1;
-    
+
 }
 
 void lose() {
@@ -276,26 +276,26 @@ void introduce() {
     Sleep(1000);
     printf("              不要瞎**按，否则你需要重新开一遍就是这么任性，哼唧\n");
     Sleep(1000);
-     printf("      出现了任何问题或者您有什么想法都可以通过mao-zu@outlook,com来告知我\n");
+    printf("      出现了任何问题或者您有什么想法都可以通过mao-zu@outlook.com来告知我\n");
     Sleep(1000);
-     printf("                                祝顺好\n");
+    printf("                                祝顺好\n");
     Sleep(1000);
     try = (char)getch();
     if(try == 'm')
         menu();
     else if(try == 's') {
-         system("cls");
-         printf("\n");printf("\n");printf("\n");printf("\n");printf("\n");printf("\n");printf("\n");
-         printf("                   HAVE FUN");
-         Sleep(2000);
+        system("cls");
+        printf("\n");printf("\n");printf("\n");printf("\n");printf("\n");printf("\n");printf("\n");
+        printf("                   HAVE FUN");
+        Sleep(2000);
     }
     else {
         system("cls");
         printf("怎么就这么不听劝呢");
         while(1) {
-             scanf("%d",&i);
+            scanf("%d",&i);
         }
-       
+
     }
 
 

@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/mao-z/Documents/GitHub/Maggot/main.c
+stdio.h
+-
+conio.h
+-
+windows.h
+-
+stdlib.h
+-
+unistd.h
+-
+time.h
+-
+
