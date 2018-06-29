@@ -8,8 +8,8 @@
 #ifndef SNAKE_SNAKE_H
 #define SNAKE_SNAKE_H
 
-#define HEIGHT 40
-#define WIDTH 60
+#define HEIGHT 20
+#define WIDTH 30
 struct {
     int time;
     int food;
@@ -33,6 +33,13 @@ void menu();
 void wait();
 void gra();
 void file();
+
+void hide()
+ {
+    HANDLE hout;
+     CONSOLE_CURSOR_INFO cursor_info={1,0};
+     SetConsoleCursorInfo(hout, &cursor_info);
+ }
 
 void start() {
     int i;
@@ -71,6 +78,7 @@ void start() {
 void show() {
     gotoxy(0, 0);
     // system("cls");
+    hide();
     int i, j;
     for (i = 0; i < HEIGHT; i++) {
         for(j = 0;j < WIDTH; j++) {
