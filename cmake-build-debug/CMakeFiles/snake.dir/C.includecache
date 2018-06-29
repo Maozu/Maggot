@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/mao-z/Documents/GitHub/Maggot/Snake/snake.h
+stdio.h
+-
+conio.h
+-
+windows.h
+-
+stdlib.h
+-
+unistd.h
+-
+time.h
+-
+
+C:/Users/mao-z/Documents/GitHub/Maggot/main.c
+Snake/snake.h
+C:/Users/mao-z/Documents/GitHub/Maggot/Snake/snake.h
+

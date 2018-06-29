@@ -110,17 +110,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named untitled
+# Target rules for targets named snake
 
 # Build rule for target.
-untitled: cmake_check_build_system
-	$(MAKE) -f CMakeFiles\Makefile2 untitled
-.PHONY : untitled
+snake: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 snake
+.PHONY : snake
 
 # fast build rule for target.
-untitled/fast:
-	$(MAKE) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/build
-.PHONY : untitled/fast
+snake/fast:
+	$(MAKE) -f CMakeFiles\snake.dir\build.make CMakeFiles/snake.dir/build
+.PHONY : snake/fast
 
 main.obj: main.c.obj
 
@@ -128,7 +128,7 @@ main.obj: main.c.obj
 
 # target to build an object file
 main.c.obj:
-	$(MAKE) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/main.c.obj
+	$(MAKE) -f CMakeFiles\snake.dir\build.make CMakeFiles/snake.dir/main.c.obj
 .PHONY : main.c.obj
 
 main.i: main.c.i
@@ -137,7 +137,7 @@ main.i: main.c.i
 
 # target to preprocess a source file
 main.c.i:
-	$(MAKE) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/main.c.i
+	$(MAKE) -f CMakeFiles\snake.dir\build.make CMakeFiles/snake.dir/main.c.i
 .PHONY : main.c.i
 
 main.s: main.c.s
@@ -146,7 +146,7 @@ main.s: main.c.s
 
 # target to generate assembly for a file
 main.c.s:
-	$(MAKE) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/main.c.s
+	$(MAKE) -f CMakeFiles\snake.dir\build.make CMakeFiles/snake.dir/main.c.s
 .PHONY : main.c.s
 
 # Help Target
@@ -155,8 +155,8 @@ help:
 	@echo ... all (the default if no target is provided)
 	@echo ... clean
 	@echo ... depend
+	@echo ... snake
 	@echo ... edit_cache
-	@echo ... untitled
 	@echo ... rebuild_cache
 	@echo ... main.obj
 	@echo ... main.i
