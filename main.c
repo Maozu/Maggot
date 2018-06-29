@@ -5,7 +5,7 @@ int main() {
     char try = 0;
     int a = 1;
 
-//    introduce();
+    introduce();
     wait();
     system("cls");
 //    scanf("%c", &try);
@@ -28,7 +28,7 @@ int main() {
         }
         else
             Sleep((DWORD) level.time);
-        // 
+        //
         // move = (char)getch();
         // a = with(move);
         grade += 1;
@@ -38,6 +38,6 @@ int main() {
     gotoxy(16,20);
     printf("请输入您的名字\n");
     gets(user_name);
-    lose(); 
+    lose();
     return 0;
 }
